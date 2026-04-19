@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: voiceauth-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: DEBUG
+        value: false
+      - key: SIMILARITY_THRESHOLD
+        value: "0.75"
+      - key: CHUNK_DURATION_SEC
+        value: "10"
+      - key: CORS_ORIGINS
+        value: "https://your-app.vercel.app"
+      - key: SPEAKER_DB_PATH
+        value: "models/speaker_db.pkl"
+    disk:
+      name: voiceauth-data
+      mountPath: /app/models
+      sizeGB: 1
