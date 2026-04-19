@@ -1,0 +1,174 @@
+/* ──────────────────────────────────────────────────
+   Analyze Page Styles
+   ────────────────────────────────────────────────── */
+
+.page {
+  min-height: calc(100vh - 64px);
+  padding: 40px 0 60px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 800px;
+}
+
+/* Header */
+
+.header {
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* Action bar */
+
+.actionBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  gap: 16px;
+}
+
+.selectedFile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.fileIcon {
+  flex-shrink: 0;
+}
+
+.fileName {
+  font-size: 0.9rem;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Loading */
+
+.loadingCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loadingContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.loadingSpinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+.loadingTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.loadingDesc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.loadingSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 52px;
+}
+
+.loadingStep {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  animation: pulse 1.5s infinite;
+}
+
+.loadingStep:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.loadingStep:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* Error */
+
+.errorCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--danger-bg);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  border-radius: var(--radius-md);
+}
+
+.errorIcon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.errorTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--danger);
+  margin-bottom: 2px;
+}
+
+.errorDesc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+  .actionBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actionButtons {
+    justify-content: flex-end;
+  }
+
+  .errorCard {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -1,0 +1,274 @@
+/* ──────────────────────────────────────────────────
+   Landing Page Styles
+   ────────────────────────────────────────────────── */
+
+.page {
+  min-height: 100vh;
+}
+
+/* ─── Hero ────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  padding: 100px 0 60px;
+  overflow: hidden;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.heroBadgeDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: pulse 2s infinite;
+}
+
+.heroTitle {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  animation: fadeIn 0.5s ease-out 0.1s both;
+}
+
+.heroAccent {
+  background: linear-gradient(135deg, var(--accent-light), var(--accent), #fd79a8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroDesc {
+  max-width: 580px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  animation: fadeIn 0.5s ease-out 0.2s both;
+}
+
+.heroCta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 48px;
+  animation: fadeIn 0.5s ease-out 0.3s both;
+}
+
+/* Stats */
+
+.stats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeIn 0.5s ease-out 0.4s both;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  min-width: 140px;
+}
+
+.statName {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-light);
+}
+
+.statDetail {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Hero glow */
+
+.heroGlow {
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ─── Features ─────────────────────────────────────── */
+
+.features {
+  padding: 80px 0;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.sectionDesc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.featureIcon {
+  font-size: 1.6rem;
+}
+
+.featureTitle {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.featureDesc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ─── Pipeline ─────────────────────────────────────── */
+
+.pipeline {
+  padding: 60px 0 80px;
+}
+
+.pipelineSteps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.pipelineStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+  min-width: 140px;
+}
+
+.stepNumber {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.stepLabel {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.stepDesc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  max-width: 130px;
+}
+
+.stepConnector {
+  display: none;
+}
+
+/* ─── Footer ─────────────────────────────────────── */
+
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+}
+
+.footerText {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ─── Responsive ──────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .heroCta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .heroCta > * {
+    width: 100%;
+  }
+
+  .stats {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .stat {
+    min-width: auto;
+  }
+
+  .pipelineSteps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pipelineStep {
+    padding: 12px 0;
+  }
+}
