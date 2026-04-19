@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.env
+venv/
+uploads/
+voice_auth.db
+src/ml/tmp_model/
+.git/
+.gitignore

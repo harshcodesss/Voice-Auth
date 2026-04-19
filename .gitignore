@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+
+# Backend runtime
+backend/uploads/
+backend/voice_auth.db
+backend/src/ml/tmp_model/
+
+# Node
+node_modules/
+.next/
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
