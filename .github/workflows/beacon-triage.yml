@@ -1,0 +1,38 @@
+name: Beacon triage
+
+on:
+  workflow_run:
+    workflows: ["Deploy"]
+    types: [completed]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  triage:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 5
+
+      - name: Download logs from the failed run
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+          name: logs
+          path: logs
+
+      - name: Triage the failure
+        uses: harshcodesss/Beacon@main
+        with:
+          llm_model: google_genai:gemini-3.1-flash-lite
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+          beacon_api_key: ${{ secrets.BEACON_API_KEY }}
+          api_url: https://beacon-cono.onrender.com
+          log_path: ./logs/app.log
+          window_minutes: 30

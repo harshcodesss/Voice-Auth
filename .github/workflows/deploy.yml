@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Simulate a failing deploy
+        run: |
+          mkdir -p logs
+          cat > logs/app.log <<'EOF'
+          2026-07-15T02:58:01Z ERROR payment.py:112 timeout calling payments-provider after 3000ms
+          2026-07-15T02:58:02Z ERROR payment.py:114 retry 1 failed: connection reset
+          2026-07-15T02:58:03Z ERROR payment.py:114 retry 2 failed: connection reset
+          2026-07-15T02:58:04Z CRITICAL app.py:40 checkout flow aborted, payment provider unreachable
+          EOF
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: logs
+          path: logs/app.log
